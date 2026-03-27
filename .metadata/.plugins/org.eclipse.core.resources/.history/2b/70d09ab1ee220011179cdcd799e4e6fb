@@ -1,0 +1,41 @@
+package com.yatra.automation;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class YatraAutomationScript {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		ChromeOptions cmoptions = new ChromeOptions();
+		cmoptions.addArguments("--disable-notifications");
+		
+		WebDriver driver = new ChromeDriver(cmoptions);
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.yatra.com");
+		
+		Thread.sleep(5000);
+		By departureDate=By.xpath("//div[@aria-label=\"Departure Date inputbox\"]");
+		//WebElement depDate=driver.findElement(departureDate);
+		
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+		WebElement depDate=wait.until(ExpectedConditions.elementToBeClickable(departureDate));
+		depDate.click();
+		
+		By calenderMonthLocators = By.xpath("//div[@class=\"react-datepicker__month-container\"]");
+		List<WebElement>calenderMonthsElement =driver.findElements(calenderMonthLocators);
+		
+		System.out.println(calenderMonthsElement.size());
+		//wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(calenderel));
+		
+	}
+}

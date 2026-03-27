@@ -1,0 +1,18 @@
+package topInterviewQuestions;
+
+public class ReverseString {
+
+	public static void main(String[] args) {
+
+		String str = "Roshan";
+		
+		//Using inbuilt method
+		
+		StringBuilder sb = new StringBuilder(str);
+		
+		String rev = sb.reverse().toString();
+		
+		System.out.println(rev);
+	}
+
+}

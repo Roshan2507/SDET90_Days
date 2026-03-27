@@ -1,0 +1,77 @@
+package com.yatra.automation;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Scanner;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class YatraAutomationScript {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		//Scanner sc = new Scanner(System.in);
+
+	//	System.out.println("Enter value for month 1st=0 or 2nd=1");
+		//int cal=sc.nextInt();
+		
+
+		ChromeOptions cmoptions = new ChromeOptions();
+		cmoptions.addArguments("--disable-notifications");
+
+		WebDriver driver = new ChromeDriver(cmoptions);
+		driver.manage().window().maximize();
+
+		driver.get("https://www.yatra.com");
+
+		Thread.sleep(5000);
+		By departureDate = By.xpath("//div[@aria-label=\"Departure Date inputbox\"]");
+		// WebElement depDate=driver.findElement(departureDate);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebElement depDate = wait.until(ExpectedConditions.elementToBeClickable(departureDate));
+		depDate.click();
+
+		By calenderMonthLocators = By.xpath("//div[@class=\"react-datepicker__month-container\"]");
+		// List<WebElement>calenderMonthsElement
+		// =driver.findElements(calenderMonthLocators);
+		List<WebElement> calenderMonthsList = wait
+				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(calenderMonthLocators));
+		//System.out.println(calenderMonthsList.size());
+
+		WebElement juneCalenderWebelement = calenderMonthsList.get(1);
+		Thread.sleep(3000);
+		
+		By priceLocator = By.xpath(".//span[contains(@class,\"custom-day-content\")]");
+		
+		List <WebElement>junePriceList =juneCalenderWebelement.findElements(priceLocator);
+		int lowestPrice =Integer.MAX_VALUE;
+		
+		for(WebElement price:junePriceList)
+		{
+			//System.out.println(price.getText());
+			
+			String priceString = price.getText();
+			
+			String stringPrices =priceString.replace("₹", "").replace(",", "");
+			//System.out.println(stringPrices);
+		   int priceInt = Integer.parseInt(stringPrices);
+		    if(priceInt<lowestPrice)
+		    {
+		    	lowestPrice=priceInt;
+		    }
+		
+			
+			
+		}
+		System.out.println("The Lowest Price is :"+lowestPrice);
+
+		driver.quit();
+	}
+}

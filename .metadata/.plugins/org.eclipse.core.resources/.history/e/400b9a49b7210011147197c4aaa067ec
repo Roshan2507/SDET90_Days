@@ -1,0 +1,26 @@
+package StringCode;
+
+public class DuplicateCharInString {
+
+	public static void main(String[] args) {
+
+		String str ="Swiss";
+		char[] res= str.toCharArray();
+		//char [] res1= new char[str.length()];
+		System.out.println(str);
+		System.out.print("Duplicate character is :");
+		for(int i=0;i<str.length();i++)
+		{
+			for(int j=i+1;j<str.length();j++)
+			{
+				if(res[i]!=res[j])
+				{
+					//res1[i]+=res[j];
+					System.out.print(res[j]);
+					//break;
+				}
+			}
+		}
+	}
+
+}

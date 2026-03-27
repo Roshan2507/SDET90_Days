@@ -1,0 +1,10 @@
+package topInterviewQuestions;
+
+public class SwapWithout3rdV {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

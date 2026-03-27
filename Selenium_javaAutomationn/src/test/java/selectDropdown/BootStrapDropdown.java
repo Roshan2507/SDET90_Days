@@ -1,0 +1,46 @@
+package selectDropdown;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class BootStrapDropdown {
+
+	public static void main(String[] args) {
+
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.jqueryscript.net/demo/Drop-Down-Combo-Tree/");
+		driver.manage().window().maximize();
+		
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+		
+		WebElement drpdown =wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//div[contains(@class,\"comboTreeInputWrapper\")]/input[@id=\"justAnInputBox\"]")));
+		drpdown.click();
+		
+		WebElement selectChoice = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath(".//span[contains(text(),\"choice 1  \")]")));
+		selectChoice.click();
+		System.out.println(selectChoice.getText());
+
+
+		
+		List<WebElement> options = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+				By.xpath("//ul//li[@class=\"ComboTreeItemChlid\"] ")));
+		
+		System.out.println(options.size());
+				
+		driver.quit();
+		
+		
+		
+	}
+
+}

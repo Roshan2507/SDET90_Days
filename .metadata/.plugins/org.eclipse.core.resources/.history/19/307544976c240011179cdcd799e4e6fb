@@ -1,0 +1,20 @@
+package topInterviewQuestions;
+
+public class ReverseInteger {
+
+	public static void main(String[] args) {
+
+		int n =12345;
+		
+		String str = String.valueOf(n);
+		System.out.println(str);
+		
+		for(int i=str.length()-1;i>=0;i--)
+		{
+			System.out.print(str.charAt(i));
+		}
+		
+		
+	}
+
+}

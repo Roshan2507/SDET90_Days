@@ -1,0 +1,43 @@
+package selectDropdown;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Assignment_1 {
+
+	public static void main(String[] args) {
+
+	 /* count the total number or elements
+	  * print all the options
+	  * select the one option
+	  */
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://phppot.com/demo/jquery-dependent-dropdown-list-countries-and-states/");
+		
+		driver.manage().window().maximize();
+		
+	WebElement ele=	driver.findElement(By.id("country-list"));
+	ele.click();
+		
+		Select drpdown = new Select(ele);
+		
+		drpdown.selectByVisibleText("India");
+		List<WebElement> op = drpdown.getOptions();
+		
+		for(WebElement a :op)
+		{
+			System.out.println(a.getText());
+		}
+		
+	driver.quit();
+		
+		
+	}
+
+}

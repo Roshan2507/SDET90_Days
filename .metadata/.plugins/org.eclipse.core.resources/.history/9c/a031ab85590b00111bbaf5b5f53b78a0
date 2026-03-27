@@ -1,0 +1,51 @@
+package handleCheckboxes;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class HandleCheckbox {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.get("https://testautomationpractice.blogspot.com/");
+		driver.manage().window().maximize();
+		
+		//select all the checkbox
+	    WebElement ele =driver.findElement(By.xpath("//input[@id='sunday']"));
+//		System.out.println("Before Selection : " +ele.isSelected());
+//		driver.findElement(By.xpath("//input[@id='sunday']")).click();
+//		System.out.println("After Selection : "+ ele.isSelected());
+//		
+		//capture all the checkboxes and size.
+	 	List<WebElement> checkboxes =driver.findElements(By.xpath("//input[@type='checkbox'][@class='form-check-input']"));
+		System.out.println(checkboxes.size());
+		
+		
+		//selecting all the checkboxes
+		for(int i=0;i<checkboxes.size();i++)
+		{
+//			if(ele.equals(ele.getText()))
+//			{
+//				checkboxes.get(i).click();
+//			}
+			checkboxes.get(i).click();
+		}
+		
+		System.out.println(ele.isSelected());
+		
+		Thread.sleep(5000);
+		driver.quit();
+		
+		
+	}
+
+}

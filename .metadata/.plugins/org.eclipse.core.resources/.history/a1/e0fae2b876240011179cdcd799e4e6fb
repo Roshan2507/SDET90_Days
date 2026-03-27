@@ -1,0 +1,38 @@
+package topInterviewQuestions;
+
+public class ReverseInteger {
+
+	public static void main(String[] args) {
+
+		int n =12345;
+		
+		String str = String.valueOf(n);
+		System.out.println(str);
+		
+		String s ="";
+		
+		for(int i=str.length()-1;i>=0;i--)
+		{
+		s+=str.charAt(i);
+			//System.out.print(str.charAt(i));
+		}
+		
+		System.out.println(s);
+		
+		int r=Integer.parseInt(s);
+		System.out.println(r);
+		
+		
+		//using % operator
+		
+		int reverseNumber=0;
+		int lastDigit;
+		
+		
+		lastDigit=n%10;
+		reverseNumber =reverseNumber*10+lastDigit;
+		n=n/10;
+		System.out.println(reverseNumber);
+	}
+
+}

@@ -1,0 +1,12 @@
+package topInterviewQuestions;
+
+public class ReverseInteger {
+
+	public static void main(String[] args) {
+
+		int n =12345;
+		
+		
+	}
+
+}
