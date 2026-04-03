@@ -1,6 +1,10 @@
 package webtable;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -24,6 +28,9 @@ public class PeginationTableAssignment {
 		{
 			driver.findElement(By.xpath("//ul//a[@href='#' and contains(text(),'"+i+"')]")).click();
 			Thread.sleep(2000);
+			TakesScreenshot ts = (TakesScreenshot)driver;
+		
+			
 			for(int r=1;r<rows;r++)
 			{
 				for(int c=1;c<col;c++)
@@ -31,6 +38,10 @@ public class PeginationTableAssignment {
 					String res =driver.findElement(By.xpath("//table[@id='productTable']//tr["+r+"]//td["+c+"]")).getText();
 					
 					System.out.print(res+"\t");
+					File src = ts.getScreenshotAs(OutputType.FILE);
+					File dest = new File(System.getProperty("user.dir")+"\\target\\screenshots\\s1.png");
+					//FileUtils.copyFile(src,dest);
+					src.renameTo(dest);
 				}
 				driver.findElement(By.xpath("//table[@id='productTable' ]//tr["+r+"]//input")).click();
 				System.out.println( );
