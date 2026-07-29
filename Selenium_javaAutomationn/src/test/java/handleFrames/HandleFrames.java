@@ -1,6 +1,10 @@
 package handleFrames;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,6 +21,12 @@ public class HandleFrames {
 		driver.switchTo().frame(fr);
 		
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Roshan");
+		
+		TakesScreenshot ts =(TakesScreenshot)driver;
+		
+		File src =ts.getScreenshotAs(OutputType.FILE);
+		
+		File dest = new File(System.getProperty("user.dir")+"//location.png");
 		
 	}
 

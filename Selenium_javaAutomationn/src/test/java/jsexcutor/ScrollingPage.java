@@ -18,7 +18,7 @@ public class ScrollingPage {
 		
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		
-	/*	//scroll down the page by pixel number
+	/*  //scroll down the page by pixel number
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 		System.out.println(js.executeScript("return window.pageYOffset;"));
 		*/

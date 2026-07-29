@@ -28,13 +28,25 @@ public class CaprureScreenshotfullPage {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File destinamtion = new File(System.getProperty("user.dir")+"\\target\\screenshots\\fullpage3.png");
 		source.renameTo(destinamtion);
+		//fileUtils.copyFile(source, destinamtion);
 		
-		
+		// capture the specific section of the page
 		WebElement product = driver.findElement(By.xpath("//section[contains(@class,'category-grid')]"));
 		
 		File src=product.getScreenshotAs(OutputType.FILE);
 		File dest = new File(System.getProperty("user.dir")+"\\target\\screenshots\\product.png");
 		src.renameTo(dest);
+		
+		
+	
+		//capture web element
+		
+		WebElement featureProducts=driver.findElement(By.xpath("//img[@alt='Picture of Build your own computer']"));
+		
+		File sourceFile = featureProducts.getScreenshotAs(OutputType.FILE);
+		File targetFile = new File(System.getProperty("user.dir"+"\\\\target\\\\screenshots\\\\computerImg.png"));
+		
+		sourceFile.renameTo(targetFile);
 		
 		
 		driver.quit();
