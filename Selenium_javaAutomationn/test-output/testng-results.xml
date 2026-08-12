@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="6" total="8" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-27T18:49:50 IST" name="Suite" finished-at="2026-07-27T18:50:18 IST" duration-ms="28233">
+  <suite started-at="2026-08-12T16:01:48 IST" name="GroupingSuite" finished-at="2026-08-12T16:01:48 IST" duration-ms="75">
     <groups>
+      <group name="functional">
+        <method signature="PaymentTests.paymentInRupees()[pri:1, instance:testng.PaymentTests@291b4bf5]" name="paymentInRupees" class="testng.PaymentTests"/>
+        <method signature="PaymentTests.paymentInDollers()[pri:2, instance:testng.PaymentTests@291b4bf5]" name="paymentInDollers" class="testng.PaymentTests"/>
+      </group> <!-- functional -->
+      <group name="regression">
+        <method signature="PaymentTests.paymentInRupees()[pri:1, instance:testng.PaymentTests@291b4bf5]" name="paymentInRupees" class="testng.PaymentTests"/>
+        <method signature="PaymentTests.paymentInDollers()[pri:2, instance:testng.PaymentTests@291b4bf5]" name="paymentInDollers" class="testng.PaymentTests"/>
+      </group> <!-- regression -->
+      <group name="sanity">
+        <method signature="PaymentTests.paymentInRupees()[pri:1, instance:testng.PaymentTests@291b4bf5]" name="paymentInRupees" class="testng.PaymentTests"/>
+        <method signature="PaymentTests.paymentInDollers()[pri:2, instance:testng.PaymentTests@291b4bf5]" name="paymentInDollers" class="testng.PaymentTests"/>
+      </group> <!-- sanity -->
     </groups>
-    <test started-at="2026-07-27T18:49:50 IST" name="Test" finished-at="2026-07-27T18:50:18 IST" duration-ms="28233">
-      <class name="testng.OrangeHRMTest">
-        <test-method signature="openApp()[pri:1, instance:testng.OrangeHRMTest@4c309d4d]" started-at="2026-07-27T18:49:50 IST" name="openApp" finished-at="2026-07-27T18:50:03 IST" duration-ms="13154" status="PASS">
+    <test started-at="2026-08-12T16:01:48 IST" name="GroupingTest" finished-at="2026-08-12T16:01:48 IST" duration-ms="75">
+      <class name="testng.PaymentTests">
+        <test-method signature="paymentInRupees()[pri:1, instance:testng.PaymentTests@291b4bf5]" started-at="2026-08-12T16:01:48 IST" name="paymentInRupees" finished-at="2026-08-12T16:01:48 IST" duration-ms="12" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openApp -->
-        <test-method signature="testLogo()[pri:2, instance:testng.OrangeHRMTest@4c309d4d]" started-at="2026-07-27T18:50:03 IST" name="testLogo" finished-at="2026-07-27T18:50:04 IST" duration-ms="459" status="PASS">
+        </test-method> <!-- paymentInRupees -->
+        <test-method signature="paymentInDollers()[pri:2, instance:testng.PaymentTests@291b4bf5]" started-at="2026-08-12T16:01:48 IST" name="paymentInDollers" finished-at="2026-08-12T16:01:48 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testLogo -->
-        <test-method signature="loginTest()[pri:3, instance:testng.OrangeHRMTest@4c309d4d]" started-at="2026-07-27T18:50:04 IST" name="loginTest" finished-at="2026-07-27T18:50:04 IST" duration-ms="380" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method signature="logout()[pri:4, instance:testng.OrangeHRMTest@4c309d4d]" started-at="2026-07-27T18:50:04 IST" name="logout" finished-at="2026-07-27T18:50:14 IST" duration-ms="9310" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logout -->
-      </class> <!-- testng.OrangeHRMTest -->
-      <class name="testng.FirstTestClass">
-        <test-method signature="openapp()[pri:1, instance:testng.FirstTestClass@58ea606c]" started-at="2026-07-27T18:50:14 IST" name="openapp" finished-at="2026-07-27T18:50:18 IST" duration-ms="4554" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openapp -->
-        <test-method signature="loginapp()[pri:2, instance:testng.FirstTestClass@58ea606c]" started-at="2026-07-27T18:50:18 IST" name="loginapp" finished-at="2026-07-27T18:50:18 IST" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginapp -->
-        <test-method signature="logout()[pri:3, instance:testng.FirstTestClass@58ea606c]" started-at="2026-07-27T18:50:18 IST" name="logout" finished-at="2026-07-27T18:50:18 IST" duration-ms="277" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logout -->
-      </class> <!-- testng.FirstTestClass -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- paymentInDollers -->
+      </class> <!-- testng.PaymentTests -->
+    </test> <!-- GroupingTest -->
+  </suite> <!-- GroupingSuite -->
 </testng-results>
