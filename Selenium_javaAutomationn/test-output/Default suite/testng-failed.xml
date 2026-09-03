@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testng.DependencyMethod">
+      <class name="testng.DataProviderDemo">
         <methods>
-          <include name="search"/>
-          <include name="logout"/>
-          <include name="advsearch"/>
-          <include name="login"/>
-          <include name="openapp"/>
+          <include name="testLogin" invocation-numbers="0"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- testng.DependencyMethod -->
+      </class> <!-- testng.DataProviderDemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

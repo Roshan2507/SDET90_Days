@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class DataProviderDemo {
@@ -24,14 +25,14 @@ public class DataProviderDemo {
 		
 	}
 	
-	@Test
-	void testLogin() throws InterruptedException
+	@Test(dataProvider="dp")
+	void testLogin(String email,String pass) throws InterruptedException
 	{
         driver.manage().window().maximize();
 		driver.get("https://tutorialsninja.com/demo/index.php?route=account/login");
 		
-		driver.findElement(By.id("input-email")).sendKeys("Sinu1234@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("Roshan@1712");
+		driver.findElement(By.id("input-email")).sendKeys(email);
+		driver.findElement(By.id("input-password")).sendKeys(pass);
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 		
 		Thread.sleep(3000);
@@ -50,9 +51,7 @@ public class DataProviderDemo {
 		{
 			Assert.fail();
 		}
-		
-		
-		
+			
 		
 	}
 	
@@ -61,5 +60,20 @@ public class DataProviderDemo {
 	{
 		driver.quit();
 	}
+	
+	
+	@DataProvider(name="dp",indices= {0,1})
+	Object [][] loginData()
+	{
+		Object data [][] = 
+			{
+				{"abc@gmail.com","test123"},
+				{"sinu1234@gmail.com","Roshan@1712"},
+				{"admin123@gmail.com","Admin123"},
+				{"xyz@gmail.com","test@123"}
+		     };
+		return data;
+	}
+	
 
 }
